@@ -19,6 +19,8 @@ SERVER_PORT=8080
 
 REDIS_PORT=6379
 REDIS_HOST=localhost
+REDIS_TIMEOUT=2000
+REDIS_KEY_PREFIX=xendit-
 REDIS_TTL_MARVEL=3600
 
 MARVEL_PUBLIC_KEY=
@@ -39,7 +41,7 @@ MARVEL_BASE_URL=https://gateway.marvel.com
 
 - Open API documentation is defined in `open-api-doc.js` file, the UI is provided by `swagger-ui-express` module
 
-- Once the server started, you can explore the Open API at `http://localhost:8080/api-docs`
+- Once the server started, you can explore the Open API at `http://localhost:8080/api-docs` or `http://localhost:8080`
 
 ## Run tests with coverage
 

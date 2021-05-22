@@ -23,13 +23,13 @@ module.exports = {
   ],
   tags: [
     {
-      name: 'Get Characters'
+      name: 'CharactersAPI'
     }
   ],
   paths: {
     '/characters': {
       get: {
-        tags: ['Get Characters'],
+        tags: ['CharactersAPI'],
         description: 'Get Characters',
         operationId: 'getCharacters',
         parameters: [],
@@ -64,7 +64,7 @@ module.exports = {
     },
     '/characters/{characterId}': {
       get: {
-        tags: ['Get Characters'],
+        tags: ['CharactersAPI'],
         description: 'Get a character by id',
         operationId: 'getCharactersById',
         parameters: [

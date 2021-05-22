@@ -9,7 +9,8 @@ const openApiDocumentation = require('./open-api-doc');
 const redisClient = redis.createClient(
   process.env.REDIS_PORT, 
   process.env.REDIS_HOST, {
-    prefix: 'xendit-'
+    prefix: process.env.REDIS_KEY_PREFIX,
+    connect_timeout: process.env.REDIS_TIMEOUT
   });
 
 redisClient.on('error', err => {
@@ -26,7 +27,7 @@ app.use(function(err, req, res, next) {
   res.status(err.response.status || 500).send(err.response.data);
 });
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiDocumentation));
+app.use(['/', '/api-docs'], swaggerUi.serve, swaggerUi.setup(openApiDocumentation));
 
 app.listen(process.env.PORT || 8080, () => {
   console.log("Node server started")
